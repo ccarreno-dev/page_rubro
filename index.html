@@ -68,7 +68,9 @@
       <div class="container">
 
         <div class="w-full flex items-center justify-start">
-          <img src="./src/img/logo.png" alt="Logo" class="max-h-24 max-w-64" />
+          <a href="/">
+            <img src="./src/img/logo.png" alt="Logo" class="max-h-24 max-w-64" />
+          </a>
         </div>
 
         <!-- Menú de escritorio -->
@@ -93,14 +95,14 @@
       <!-- Menú móvil -->
       <div class="md:hidden" x-show="open" x-transition>
         <div class="space-y-1 px-2 pt-2 pb-3">
-          <a href="#"
+          <a href="#inicio"
             class="block rounded-md px-3 py-2 text-base font-medium text-white hover:text-blue-400 border-t-2 border-b-2 border-blue-400"
             aria-current="page">INICIO</a>
-          <a href="#"
+          <a href="#empresa"
             class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:text-blue-400 border-b-2 border-blue-400">EMPRESA</a>
-            <a href=" #"
+            <a href=" #precios"
             class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:text-blue-400 border-b-2 border-blue-400">PRECIOS</a>
-            <a href=" #"
+            <a href=" #contacto"
             class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:text-blue-400 border-b-2 border-blue-400">CONTACTO</a>
         </div>
       </div>
@@ -161,7 +163,7 @@
                       <input type="text" id="telefono" class="block w-full h-12 px-5 py-2.5 bg-white leading-7 text-base font-normal shadow-sm text-gray-900 bg-transparent border border-gray-300 rounded-full placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#334FBA] transition-all duration-300 ease-in-out focus:border-[#334FBA]" placeholder="Teléfono" required>
                     </div>
   
-                    <button class="w-52 h-12 shadow-sm rounded-full bg-[#334FBA] hover:bg-indigo-800 transition-all duration-700 text-white text-base font-semibold leading-7">Solicitar Información</button>
+                    <button class="w-52 h-12 shadow-sm rounded-full bg-[#334FBA] hover:bg-indigo-800 transition-all duration-700 text-white text-base font-semibold leading-7 cursor-pointer">Solicitar Información</button>
                   </form>
                 </div>
 
@@ -560,7 +562,7 @@
                         <li>01 Establecimientos</li>
                         <li>1,000 Productos</li>
                       </ul>
-                      <button class="w-full h-12 shadow-sm rounded-full bg-[#334FBA] hover:bg-indigo-800 transition-all duration-300 text-white text-base font-semibold leading-7 mt-4 transform hover:scale-105">Elegir plan</button>
+                      <button class="w-full h-12 shadow-sm rounded-full bg-[#334FBA] hover:bg-indigo-800 transition-all duration-300 text-white text-base font-semibold leading-7 mt-4 transform hover:scale-105 cursor-pointer">Elegir plan</button>
                     </div>
                   </div>
               
@@ -578,7 +580,7 @@
                         <li>03 Establecimientos</li>
                         <li>5,000 Productos</li>
                       </ul>
-                      <button class="w-full h-12 shadow-sm rounded-full bg-[#334FBA] hover:bg-indigo-800 transition-all duration-300 text-white text-base font-semibold leading-7 mt-4 transform hover:scale-105">Elegir plan</button>
+                      <button class="w-full h-12 shadow-sm rounded-full bg-[#334FBA] hover:bg-indigo-800 transition-all duration-300 text-white text-base font-semibold leading-7 mt-4 transform hover:scale-105 cursor-pointer">Elegir plan</button>
                     </div>
                   </div>
               
@@ -596,7 +598,7 @@
                         <li>10 Establecimientos</li>
                         <li>10,000 Productos</li>
                       </ul>
-                      <button class="w-full h-12 shadow-sm rounded-full bg-[#334FBA] hover:bg-indigo-800 transition-all duration-300 text-white text-base font-semibold leading-7 mt-4 transform hover:scale-105">Elegir plan</button>
+                      <button class="w-full h-12 shadow-sm rounded-full bg-[#334FBA] hover:bg-indigo-800 transition-all duration-300 text-white text-base font-semibold leading-7 mt-4 transform hover:scale-105 cursor-pointer">Elegir plan</button>
                     </div>
                   </div>
               
@@ -614,7 +616,7 @@
                         <li>20 Establecimientos</li>
                         <li>50,000 Productos</li>
                       </ul>
-                      <button class="w-full h-12 shadow-sm rounded-full bg-[#334FBA] hover:bg-indigo-800 transition-all duration-300 text-white text-base font-semibold leading-7 mt-4 transform hover:scale-105">Elegir plan</button>
+                      <button class="w-full h-12 shadow-sm rounded-full bg-[#334FBA] hover:bg-indigo-800 transition-all duration-300 text-white text-base font-semibold leading-7 mt-4 transform hover:scale-105 cursor-pointer">Elegir plan</button>
                     </div>
                   </div>
               
@@ -639,7 +641,7 @@
             
                     <!-- Pregunta 1 -->
                     <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                      <button class="w-full text-left px-6 py-4 text-xl font-semibold text-gray-700 hover:bg-gray-100 focus:outline-none flex justify-between items-center"
+                      <button class="w-full text-left px-6 py-4 text-xl font-semibold text-gray-700 hover:bg-gray-100 focus:outline-none flex justify-between items-center cursor-pointer"
                               @click="openFAQ === 1 ? openFAQ = null : openFAQ = 1">
                         <span>¿Qué es un sistema ERP?</span>
 
@@ -655,7 +657,7 @@
             
                     <!-- Pregunta 2 -->
                     <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                      <button class="w-full text-left px-6 py-4 text-xl font-semibold text-gray-700 hover:bg-gray-100 focus:outline-none flex justify-between items-center"
+                      <button class="w-full text-left px-6 py-4 text-xl font-semibold text-gray-700 hover:bg-gray-100 focus:outline-none flex justify-between items-center cursor-pointer"
                               @click="openFAQ === 2 ? openFAQ = null : openFAQ = 2">
                         <span>¿Qué necesito para registrar mi empresa?</span>
                         <svg :class="{'rotate-180': openFAQ === 2}" class="w-5 h-5 transform transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -669,7 +671,7 @@
             
                     <!-- Pregunta 3 -->
                     <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                      <button class="w-full text-left px-6 py-4 text-xl font-semibold text-gray-700 hover:bg-gray-100 focus:outline-none flex justify-between items-center"
+                      <button class="w-full text-left px-6 py-4 text-xl font-semibold text-gray-700 hover:bg-gray-100 focus:outline-none flex justify-between items-center cursor-pointer"
                               @click="openFAQ === 3 ? openFAQ = null : openFAQ = 3">
                         <span>¿Puedo administrar múltiples empresas en mi cuenta?</span>
                         <svg :class="{'rotate-180': openFAQ === 3}" class="w-5 h-5 transform transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -683,7 +685,7 @@
             
                     <!-- Pregunta 4 -->
                     <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                      <button class="w-full text-left px-6 py-4 text-xl font-semibold text-gray-700 hover:bg-gray-100 focus:outline-none flex justify-between items-center"
+                      <button class="w-full text-left px-6 py-4 text-xl font-semibold text-gray-700 hover:bg-gray-100 focus:outline-none flex justify-between items-center cursor-pointer"
                               @click="openFAQ === 4 ? openFAQ = null : openFAQ = 4">
                         <span>¿Por qué debería elegir el sistema de ERP ABC?</span>
                         <svg :class="{'rotate-180': openFAQ === 4}" class="w-5 h-5 transform transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -715,10 +717,10 @@
 
                   <!-- Navegación de Tabs -->
                   <div class="flex justify-center mb-6 space-x-10">
-                    <button @click="activeTab = 'contactForm'" :class="{'text-[#334FBA] border-b-4 border-[#334FBA]': activeTab === 'contactForm'}" class="px-6 py-3 text-lg font-semibold transition-all duration-300 ease-in-out hover:text-[#334FBA] focus:outline-none">
+                    <button @click="activeTab = 'contactForm'" :class="{'text-[#334FBA] border-b-4 border-[#334FBA]': activeTab === 'contactForm'}" class="px-6 py-3 text-lg font-semibold transition-all duration-300 ease-in-out hover:text-[#334FBA] focus:outline-none cursor-pointer">
                       Formulario de Contacto
                     </button>
-                    <button @click="activeTab = 'locationInfo'" :class="{'text-[#334FBA] border-b-4 border-[#334FBA]': activeTab === 'locationInfo'}" class="px-6 py-3 text-lg font-semibold transition-all duration-300 ease-in-out hover:text-[#334FBA] focus:outline-none">
+                    <button @click="activeTab = 'locationInfo'" :class="{'text-[#334FBA] border-b-4 border-[#334FBA]': activeTab === 'locationInfo'}" class="px-6 py-3 text-lg font-semibold transition-all duration-300 ease-in-out hover:text-[#334FBA] focus:outline-none cursor-pointer">
                       Ubícanos
                     </button>
                   </div>
@@ -733,7 +735,7 @@
                         <input type="text" placeholder="Nombre *" required class="w-full h-12 px-4 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#334FBA] transition-all duration-300 ease-in-out">
                         <input type="tel" placeholder="Teléfono *" required class="w-full h-12 px-4 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#334FBA] transition-all duration-300 ease-in-out">
                         <textarea placeholder="Mensaje *" required class="w-full h-24 px-4 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#334FBA] transition-all duration-300 ease-in-out"></textarea>
-                        <button type="submit" class="w-full h-12 shadow-sm rounded-full bg-[#334FBA] hover:bg-indigo-800 transition-all duration-500 ease-in-out text-white text-base font-semibold leading-7">
+                        <button type="submit" class="w-full h-12 shadow-sm rounded-full bg-[#334FBA] hover:bg-indigo-800 transition-all duration-500 ease-in-out text-white text-base font-semibold leading-7 cursor-pointer">
                           Enviar Información
                         </button>
                       </form>
