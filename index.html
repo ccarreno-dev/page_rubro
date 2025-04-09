@@ -1,115 +1,845 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TOP TECH CORPORATION</title>
-  <link rel="stylesheet" href="styles.css"/>
+  <link href="./src/css/output.css" rel="stylesheet" />
+  <link href="./src/css/container.css" rel="stylesheet" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.1/css/all.min.css" />
+  <!-- Alpine Plugins -->
+  <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
+  <!-- Alpine Core -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <!-- Animate CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 </head>
+
 <body>
-  <header>
-    <div class="top-bar">
-      <span>admin64gmail.com</span>
-      <span>912 854 789</span>
-      <span>Lunes a Viernes 8am-6pm</span>
+
+  <div class="bg-[#334FBA] border-b-1 border-b-white text-white shadow-md text-sm hidden md:flex">
+
+    <div class="container">
+
+      <div class="w-full md:w-5/6 lg:w-1/2 p-4">
+        <ul class="flex gap-4 justify-start">
+          <li>
+            <i class="far fa-envelope-open"></i>
+            <a href="#">contacto@demo.com</a>
+          </li>
+          <li>
+            <i class="fab fa-whatsapp"></i>
+            <a>+51 911 756 036</a>
+          </li>
+          <li>
+            <i class="fas fa-phone-alt"></i>
+            <a>(01) 570 4000</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="w-full md:w-1/2 p-4">
+        <ul class="flex gap-4 justify-end">
+          <li class="hidden lg:flex">
+            <time dateTime="08:00-18:00">Atención: 8:00 AM – 6:00 PM</time>
+          </li>
+          <li>
+            <i class="fab fa-facebook ml-2"></i>
+            <i class="fab fa-instagram ml-2"></i>
+            <i class="fab fa-youtube ml-2"></i>
+          </li>
+        </ul>
+      </div>
+
     </div>
-    <nav>
-      <ul>
-        <li>INICIO</li>
-        <li>EMPRESA</li>
-        <li>PRECIOS</li>
-        <li>CONTACTO</li>
-      </ul>
-    </nav>
+
+  </div>
+
+  <header class="sticky top-0 z-30">
+
+    <div class="justify-between items-center bg-[#334FBA]" x-data="{ open: false }">
+
+      <div class="container">
+
+        <div class="w-full flex items-center justify-start">
+          <img src="./src/img/logo.png" alt="Logo" class="max-h-24 max-w-64" />
+        </div>
+
+        <!-- Menú de escritorio -->
+        <div class="w-full items-center justify-end hidden md:flex space-x-4">
+          <a href="#inicio" class="rounded-md px-3 py-2 text-sm font-medium text-white">INICIO</a>
+          <a href="#empresa" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:text-blue-400">EMPRESA</a>
+          <a href="#precios" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:text-blue-400">PRECIOS</a>
+          <a href="#contacto" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:text-blue-400">CONTACTO</a>
+        </div>
+
+        <!-- Botón hamburguesa -->
+        <div class="md:hidden flex items-center">
+          <button x-on:click="open = !open" class="text-gray-300 focus:outline-none cursor-pointer">
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Menú móvil -->
+      <div class="md:hidden" x-show="open" x-transition>
+        <div class="space-y-1 px-2 pt-2 pb-3">
+          <a href="#"
+            class="block rounded-md px-3 py-2 text-base font-medium text-white hover:text-blue-400 border-t-2 border-b-2 border-blue-400"
+            aria-current="page">INICIO</a>
+          <a href="#"
+            class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:text-blue-400 border-b-2 border-blue-400">EMPRESA</a>
+            <a href=" #"
+            class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:text-blue-400 border-b-2 border-blue-400">PRECIOS</a>
+            <a href=" #"
+            class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:text-blue-400 border-b-2 border-blue-400">CONTACTO</a>
+        </div>
+      </div>
+
+    </div>
+
   </header>
 
-  <section class="contact-form">
-    <h2>¿Necesitas más información?</h2>
-    <p>Ingresa tus datos y nos pondremos en contacto contigo</p>
-    <form>
-      <input type="text" placeholder="Nombre *" required />
-      <input type="text" placeholder="RUC *" required />
-      <input type="tel" placeholder="Teléfono *" required />
-      <button type="submit">Enviar Información</button>
-    </form>
-  </section>
 
-  <section class="cards">
-    <h2>¿QUÉ OFRECEMOS?</h2>
-    <div class="card-grid">
-      <div class="card">
-        <h3>Título de Card</h3>
-        <p>Un card es una unidad visual que organiza información de forma clara y atractiva...</p>
-      </div>
-      <!-- Repite 3 más según el diseño -->
-    </div>
-  </section>
+  <section class="relative">
+            <img src="./src/img/banner.jpg" alt="Banner" class="w-full md:min-h-130 min-h-190 md:max-h-96 object-cover" />
 
-  <section class="experience">
-    <h2>+10 AÑOS DE EXPERIENCIA</h2>
-    <p>"XYZ es un producto desarrollado por ... S.A.C."</p>
-  </section>
+            <div
+              class="absolute top-0 w-full h-full flex items-center text-center justify-around bg-gradient-to-t from-black via-transparent to-transparent">
 
-  <section class="stats">
-    <div>1,000+<br/>EMPRESAS REGISTRADAS</div>
-    <div>1,000+<br/>USUARIOS ACTIVOS</div>
-    <div>1,000+<br/>DOCUMENTOS EMITIDOS</div>
-  </section>
+              <div class="container flex-col md:flex-row">
 
-  <section class="features">
-    <h2>CON ABC TU TIENES EL CONTROL</h2>
-    <ul>
-      <li>Gestiona tus ingresos, gastos y pagos en tiempo real</li>
-      <li>Crea fácil tus reportes administrativos y de ventas</li>
-      <li>Exporta tus ventas y compras en formato SIRE</li>
-      <li>Controla tu stock y ordénalo en almacenes</li>
-    </ul>
-  </section>
+                <div class="w-full flex justify-center md:justify-start items-center animate__animated animate__fadeInLeft">
+                  <h1 class="text-4xl font-bold text-white">TOP TECH CORPORATION
+                    <p class="text-lg font-semibold text-white mb-4">Solución empresarial para el control de inventarios,
+                      compras y ventas, elegida por miles de empresas peruanas.</p>
+                  </h1>
+                </div>
 
-  <section class="pricing">
-    <h2>PRECIOS</h2>
-    <div class="plan">
-      <h3>Microempresa</h3>
-      <p>S/ 20 /mes</p>
-      <ul>
-        <li>100 Documentos / mes</li>
-        <li>01 Establecimientos</li>
-        <li>1,000 Productos</li>
-      </ul>
-      <button>Elegir plan</button>
-    </div>
-    <!-- Repite 2 más -->
-  </section>
+                <div class="w-full flex justify-center md:justify-end animate__animated animate__fadeInRight">
+                  <form action="" class="lg:p-8 p-8 mb-4 md:mb-0 bg-white rounded-lg shadow-md">
+                    <h2 class="text-2xl font-bold text-[#334FBA] mb-4">¿Necesitas información?</h2>
+                    <h3 class="text-md font-semibold text-gray-600 mb-4">Ingresa tus datos y nos pondremos en contacto
+                      contigo</h3>
+                    <div class="relative mb-6">
+                      <label class="flex items-center mb-2 text-gray-600 text-sm font-medium">Nombre <svg width="7"
+                          height="7" class="ml-1" viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M3.11222 6.04545L3.20668 3.94744L1.43679 5.08594L0.894886 4.14134L2.77415 3.18182L0.894886 2.2223L1.43679 1.2777L3.20668 2.41619L3.11222 0.318182H4.19105L4.09659 2.41619L5.86648 1.2777L6.40838 2.2223L4.52912 3.18182L6.40838 4.14134L5.86648 5.08594L4.09659 3.94744L4.19105 6.04545H3.11222Z"
+                            fill="#EF4444" />
+                        </svg>
+                      </label>
+                      <input type="text" id="nombre" class="block w-full h-12 px-5 py-2.5 bg-white leading-7 text-base font-normal shadow-sm text-gray-900 bg-transparent border border-gray-300 rounded-full placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#334FBA] transition-all duration-300 ease-in-out focus:border-[#334FBA]" placeholder="Nombre" required>
+                    </div>
+                    <div class="relative mb-6">
+                      <label class="flex items-center mb-2 text-gray-600 text-sm font-medium">RUC <svg width="7"
+                          height="7" class="ml-1" viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M3.11222 6.04545L3.20668 3.94744L1.43679 5.08594L0.894886 4.14134L2.77415 3.18182L0.894886 2.2223L1.43679 1.2777L3.20668 2.41619L3.11222 0.318182H4.19105L4.09659 2.41619L5.86648 1.2777L6.40838 2.2223L4.52912 3.18182L6.40838 4.14134L5.86648 5.08594L4.09659 3.94744L4.19105 6.04545H3.11222Z"
+                            fill="#EF4444" />
+                        </svg>
+                      </label>
+                      <input type="text" id="ruc" class="block w-full h-12 px-5 py-2.5 bg-white leading-7 text-base font-normal shadow-sm text-gray-900 bg-transparent border border-gray-300 rounded-full placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#334FBA] transition-all duration-300 ease-in-out focus:border-[#334FBA]" placeholder="RUC" required>
+                    </div>
+                    <div class="relative mb-6">
+                      <label class="flex items-center mb-2 text-gray-600 text-sm font-medium">Teléfono <svg width="7"
+                          height="7" class="ml-1" viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M3.11222 6.04545L3.20668 3.94744L1.43679 5.08594L0.894886 4.14134L2.77415 3.18182L0.894886 2.2223L1.43679 1.2777L3.20668 2.41619L3.11222 0.318182H4.19105L4.09659 2.41619L5.86648 1.2777L6.40838 2.2223L4.52912 3.18182L6.40838 4.14134L5.86648 5.08594L4.09659 3.94744L4.19105 6.04545H3.11222Z"
+                            fill="#EF4444" />
+                        </svg>
+                      </label>
+                      <input type="text" id="telefono" class="block w-full h-12 px-5 py-2.5 bg-white leading-7 text-base font-normal shadow-sm text-gray-900 bg-transparent border border-gray-300 rounded-full placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#334FBA] transition-all duration-300 ease-in-out focus:border-[#334FBA]" placeholder="Teléfono" required>
+                    </div>
+  
+                    <button class="w-52 h-12 shadow-sm rounded-full bg-[#334FBA] hover:bg-indigo-800 transition-all duration-700 text-white text-base font-semibold leading-7">Solicitar Información</button>
+                  </form>
+                </div>
 
-  <section class="faq">
-    <h2>PREGUNTAS FRECUENTES</h2>
-    <ul>
-      <li>¿Qué es un sistema ERP?</li>
-      <li>¿Qué necesito para registrar mi empresa?</li>
-      <li>¿Puedo administrar múltiples empresas en mi cuenta?</li>
-      <li>¿Por qué debería elegir el sistema de ERP ABC?</li>
-    </ul>
-  </section>
+              </div>
 
-  <section class="contacto">
-    <h2>CONTACTO</h2>
-    <form>
-      <input type="email" placeholder="Email *" required />
-      <input type="text" placeholder="Nombre *" required />
-      <input type="tel" placeholder="Teléfono *" required />
-      <textarea placeholder="Mensaje *" required></textarea>
-      <button type="submit">ENVIAR</button>
-    </form>
-    <div class="info">
-      <p><strong>Dirección:</strong> Cal. B Nro. 987 Urb. Pardo, Miraflores, Lima</p>
-      <p><strong>Email:</strong> admin@gmail.com</p>
-      <p><strong>Whatsapp:</strong> +51 987 145 621</p>
-    </div>
-  </section>
+            </div>
+            </section>
 
-  <footer>
-    <p>© Copyright 2025. TOP TECH CORPORATION S.A.C.</p>
-    <p>Términos y condiciones | Política y Privacidad | Libro de reclamaciones</p>
-  </footer>
+            <section id="inicio" class="bg-[#F3F4F6] py-20 rounded-lg shadow-md">
+
+              <div x-data=" { visible: false }"
+              x-intersect.once="visible = true"
+              :class ="visible ? 'animate__animated animate__fadeInUp' : 'opacity-0'"
+
+              class="container flex-col">
+                <div class="flex justify-center mb-10">
+                  <h2 class="text-3xl font-bold text-[#334FBA] after:content-[''] after:block after:w-full after:h-1 after:bg-[#334FBA] after:rounded-lg after:mt-2">
+                    ¿Qué ofrecemos?
+                  </h2>
+                </div>
+              
+                <div class="flex flex-wrap lg:flex-nowrap gap-4 justify-center items-center mt-4 text-center">
+              
+                  <!-- Bloque 1 -->
+                  <div class="max-w-sm rounded-2xl border border-gray-200 bg-white transition-all duration-300 hover:border-[#334FBA] hover:shadow-2xl group">
+                    <div class="overflow-hidden rounded-t-2xl">
+                      <img class="mx-auto max-w-full p-4 transform transition-transform duration-300 group-hover:scale-105" src="./src/img/Sunat1.png" alt="img1">
+                    </div>
+                    <div class="px-6 py-4">
+                      <div class="font-bold text-xl mb-2 text-gray-800 transition-colors group-hover:text-[#334FBA]">Autorizados por SUNAT</div>
+                      <p class="text-gray-600 text-base transition-colors group-hover:text-gray-800">
+                        Somos proveedores de servicios electrónicos de SUNAT
+                      </p>
+                    </div>
+                  </div>
+              
+                  <div class="max-w-sm rounded-2xl border border-gray-200 bg-white transition-all duration-300 hover:border-[#334FBA] hover:shadow-2xl group">
+                    <div class="overflow-hidden rounded-t-2xl">
+                      <img class="mx-auto max-w-full p-4 transform transition-transform duration-300 group-hover:scale-105" src="./src/img/Sunat1.png" alt="img2">
+                    </div>
+                    <div class="px-6 py-4">
+                      <div class="font-bold text-xl mb-2 text-gray-800 transition-colors group-hover:text-[#334FBA]">Autorizados por SUNAT</div>
+                      <p class="text-gray-600 text-base transition-colors group-hover:text-gray-800">
+                        Somos proveedores de servicios electrónicos de SUNAT
+                      </p>
+                    </div>
+                  </div>
+              
+                  <!-- Bloque 3 -->
+                  <div class="max-w-sm rounded-2xl border border-gray-200 bg-white transition-all duration-300 hover:border-[#334FBA] hover:shadow-2xl group">
+                    <div class="overflow-hidden rounded-t-2xl">
+                      <img class="mx-auto max-w-full p-4 transform transition-transform duration-300 group-hover:scale-105" src="./src/img/Sunat1.png" alt="img3">
+                    </div>
+                    <div class="px-6 py-4">
+                      <div class="font-bold text-xl mb-2 text-gray-800 transition-colors group-hover:text-[#334FBA]">Autorizados por SUNAT</div>
+                      <p class="text-gray-600 text-base transition-colors group-hover:text-gray-800">
+                        Somos proveedores de servicios electrónicos de SUNAT
+                      </p>
+                    </div>
+                  </div>
+              
+                  <!-- Bloque 4 -->
+                  <div class="max-w-sm rounded-2xl border border-gray-200 bg-white transition-all duration-300 hover:border-[#334FBA] hover:shadow-2xl group">
+                    <div class="overflow-hidden rounded-t-2xl">
+                      <img class="mx-auto max-w-full p-4 transform transition-transform duration-300 group-hover:scale-105" src="./src/img/Sunat1.png" alt="img4">
+                    </div>
+                    <div class="px-6 py-4">
+                      <div class="font-bold text-xl mb-2 text-gray-800 transition-colors group-hover:text-[#334FBA]">Autorizados por SUNAT</div>
+                      <p class="text-gray-600 text-base transition-colors group-hover:text-gray-800">
+                        Somos proveedores de servicios electrónicos de SUNAT
+                      </p>
+                    </div>
+                  </div>
+              
+                </div>
+              </div>
+              
+
+            </section>
+
+            <section id="empresa" class="bg-white py-20" x-data="{ visible: false }" x-intersect.once="visible = true">
+              <div class="container">
+                <div class="flex flex-col md:flex-row items-center justify-center gap-8">
+          
+                  <div 
+                    :class="visible ? 'animate__animated animate__zoomIn' : ''" 
+                    class="transition-all duration-500 ease-in-out transform overflow-hidden rounded-2xl shadow-lg"
+                  >
+                    <img class="mx-auto w-full max-w-xs sm:max-w-sm md:max-w-96 p-4" src="./src/img/facturacion.jpg" alt="img2">
+                  </div>
+
+                  <div 
+                    :class="visible ? 'animate__animated animate__zoomIn' : ''"
+                    class="flex flex-col items-center text-center"
+                  >
+                    <h2 class="text-3xl font-bold text-[#334FBA] relative inline-block">
+                      +10 AÑOS DE EXPERIENCIA
+                      <span class="absolute bottom-0 left-0 w-full h-1 bg-[#334FBA] rounded-lg transform scale-x-0 transition-all duration-300 ease-in-out hover:scale-x-100"></span>
+                    </h2>
+                    <p class="text-gray-700 text-base mt-4 max-w-2xl">
+                      "XYZ es un producto desarrollado por ... S.A.C., una empresa peruana de capital íntegramente nacional, especializada en la investigación e innovación tecnológica en software para el sector empresarial."
+                    </p>
+                  </div>
+            
+                </div>
+              </div>
+            </section>           
+            
+            <section class="bg-[#F3F4F6] py-20">
+              <div class="container flex-col lg:flex-row items-center justify-around gap-8">
+
+                <div class="flex flex-col items-center xl:flex-row justify-center mb-10">
+                  
+                  <div class="flex justify-center mr-3">
+                    <i class="fas fa-building text-6xl text-[#334FBA]"></i>
+                  </div>
+
+                  <div class="flex flex-col text-center mt-2 xl:mt-0 xl:items-start">
+
+                    <div 
+                    x-data="{
+                      count: 0,
+                      target: 1500,
+                      started: false,
+                      start() {
+                        if (this.started) return;
+                        this.started = true;
+                        let interval = setInterval(() => {
+                          if (this.count < this.target) {
+                            this.count += 20;
+                          } else {
+                            this.count = this.target;
+                            clearInterval(interval);
+                          }
+                        }, 20);
+                      },
+                      formatNumber(num) {
+                        return new Intl.NumberFormat('es-PE').format(num);
+                      }
+                    }"
+                    x-intersect.once="start()"
+                    class="text-4xl font-bold text-[#334FBA]"
+                  >
+                    <span x-text="formatNumber(count)"></span>+
+                  </div>
+
+                    <p class="text-gray-700 font-semibold text-lg mt-1 text-left">
+                      EMPRESAS REGISTRADAS
+                    </p>
+
+                  </div>
+
+                </div>
+
+                <div class="flex flex-col items-center xl:flex-row justify-center mb-10">
+                  
+                  <div class="flex justify-center items-center mr-3">
+                    <i class="fas fa-users text-6xl text-[#334FBA]"></i>
+                  </div>
+
+                  <div class="flex flex-col text-center mt-2 xl:mt-0 xl:items-start">
+
+                    <div 
+                      x-data="{
+                        count: 0,
+                        target: 63000,
+                        started: false,
+                        start() {
+                          if (this.started) return;
+                          this.started = true;
+                          let interval = setInterval(() => {
+                            if (this.count < this.target) {
+                              this.count += 840;
+                            } else {
+                              this.count = this.target;
+                              clearInterval(interval);
+                            }
+                          }, 20);
+                        },
+                        formatNumber(num) {
+                          return new Intl.NumberFormat('es-PE').format(num);
+                        }
+                      }"
+                      x-intersect.once="start()"
+                      class="text-4xl font-bold text-[#334FBA]"
+                    >
+                      <span x-text="formatNumber(count)"></span>+
+                    </div>
+
+                    <p class="text-gray-700 font-semibold text-lg mt-1">
+                      USUARIOS ACTIVOS
+                    </p>
+
+                  </div>
+
+                </div>
+
+                <div class="flex flex-col items-center xl:flex-row justify-center mb-10">
+                  
+                  <div class="flex justify-center items-center mr-3">
+                    <i class="fas fa-receipt text-6xl text-[#334FBA]"></i>
+                  </div>
+
+                  <div class="flex flex-col text-center mt-2 xl:mt-0 xl:items-start">
+
+                    <div 
+                    x-data="{
+                      count: 0,
+                      target: 2000000,
+                      started: false,
+                      start() {
+                        if (this.started) return;
+                        this.started = true;
+                        let interval = setInterval(() => {
+                          if (this.count < this.target) {
+                            this.count += 26666;
+                          } else {
+                            this.count = this.target;
+                            clearInterval(interval);
+                          }
+                        }, 20);
+                      },
+                      formatNumber(num) {
+                        return new Intl.NumberFormat('es-PE').format(num);
+                      }
+                    }"
+                    x-intersect.once="start()"
+                    class="text-4xl font-bold text-[#334FBA]"
+                  >
+                    <span x-text="formatNumber(count)"></span>+
+                  </div>
+
+                    <p class="text-gray-700 font-semibold text-lg mt-1">
+                      DOCUMENTOS EMITIDOS
+                    </p>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </section>
+
+            <section class="bg-white py-20">
+              <div x-data=" { visible: false }"
+              x-intersect.once="visible = true"
+              :class ="visible ? 'animate__animated animate__fadeInUp' : 'opacity-0'"
+              class="container flex flex-col">
+
+                <div :class="visible ? 'animate__animated animate__fadeInUp' : 'opacity-0'"
+                  class="flex flex-col items-center text-center">
+                  <h2 class="text-3xl font-bold text-[#334FBA] after:content-[''] after:block after:w-full after:h-1 after:bg-[#334FBA] after:rounded-lg after:mt-2">
+                    Con ABC tú tienes el control
+                  </h2>
+                  <p class="text-lg font-semibold text-gray-600 mb-4 mt-2">Gestiona tus ingresos, gastos y pagos en tiempo real</p>
+                </div>
+
+                <div class="flex flex-col md:flex-row items-center justify-center gap-8 mt-4">
+                  <div class="rounded-2xl overflow-hidden shadow-lg bg-white">
+                    <img class="mx-auto max-w-full p-4" src="./src/img/dashboard.png" alt="img3">
+                  </div>
+
+                  <div :class="visible ? 'animate__animated animate__flipInY animate__delay-1s' : 'opacity-0'"
+                  class="rounded-2xl">
+                    <ul class="list-none">
+                      <li class="flex items-center mb-3">
+                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                        Gestiona tus ingresos, gastos y pagos en tiempo real
+                      </li>
+                      <li class="flex items-center mb-3">
+                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                        Crea fácil tus reportes administrativos y de ventas
+                      </li>
+                      <li class="flex items-center mb-3">
+                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                        Exporta tus ventas y compras en formato SIRE
+                      </li>
+                      <li class="flex items-center">
+                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                        Controla tu stock y ordénalo en almacenes
+                      </li>
+                    </ul>
+                  </div>
+                  
+              </div>
+
+            </section>
+
+            <section class="bg-[#F3F4F6] py-20">
+
+              <div x-data=" { visible: false }"
+              x-intersect.once="visible = true"
+              :class ="visible ? 'animate__animated animate__bounceIn animtade__delay-1s' : 'opacity-0'"
+                class="container flex flex-col items-center text-center">
+                
+                  <h2 class="text-3xl font-bold text-[#334FBA] after:content-[''] after:block after:w-full after:h-1 after:bg-[#334FBA] after:rounded-lg after:mt-2">
+                    Características
+                  </h2>
+                  <p class="text-lg font-semibold text-gray-600 mb-4 mt-2">Nuestra plataforma está diseñada para facilitar la gestión de tu negocio</p>
+
+                <div
+                class="flex flex-wrap lg:flex-nowrap gap-4 justify-center items-center mt-4">
+
+                  <!-- Bloque 1 -->
+                  <div class="max-w-sm rounded-2xl overflow-hidden shadow-lg bg-white transition duration-300 ease-in-out transform hover:bg-[#334FBA] hover:shadow-2xl hover:-translate-y-1 hover:scale-105 group">
+                    <i class="fas fa-chart-line text-6xl text-[#334FBA] py-4 transition duration-300 group-hover:text-white"></i>
+                    <div class="px-6 py-4">
+                      <div class="font-bold text-xl mb-2 text-[#334FBA] transition duration-300 group-hover:text-white">Control de Stock</div>
+                      <p class="text-gray-700 text-base transition duration-300 group-hover:text-white">Gestiona tu inventario y controla el stock de tus productos.</p>
+                    </div>
+                  </div>
+                
+                  <!-- Bloque 2 -->
+                  <div class="max-w-sm rounded-2xl overflow-hidden shadow-lg bg-white transition duration-300 ease-in-out transform hover:bg-[#334FBA] hover:shadow-2xl hover:-translate-y-1 hover:scale-105 group">
+                    <i class="fas fa-file-invoice-dollar text-6xl text-[#334FBA] py-4 transition duration-300 group-hover:text-white"></i>
+                    <div class="px-6 py-4">
+                      <div class="font-bold text-xl mb-2 text-[#334FBA] transition duration-300 group-hover:text-white">Reportes</div>
+                      <p class="text-gray-700 text-base transition duration-300 group-hover:text-white">Genera reportes de ventas y compras de manera sencilla.</p>
+                    </div>
+                  </div>
+                
+                  <!-- Bloque 3 -->
+                  <div class="max-w-sm rounded-2xl overflow-hidden shadow-lg bg-white transition duration-300 ease-in-out transform hover:bg-[#334FBA] hover:shadow-2xl hover:-translate-y-1 hover:scale-105 group">
+                    <i class="fas fa-archive text-6xl text-[#334FBA] py-4 transition duration-300 group-hover:text-white"></i>
+                    <div class="px-6 py-4">
+                      <div class="font-bold text-xl mb-2 text-[#334FBA] transition duration-300 group-hover:text-white">Almacenes</div>
+                      <p class="text-gray-700 text-base transition duration-300 group-hover:text-white">Organiza tus productos en diferentes almacenes.</p>
+                    </div>
+                  </div>
+                
+                  <!-- Bloque 4 -->
+                  <div class="max-w-sm rounded-2xl overflow-hidden shadow-lg bg-white transition duration-300 ease-in-out transform hover:bg-[#334FBA] hover:shadow-2xl hover:-translate-y-1 hover:scale-105 group">
+                    <i class="fas fa-file-export text-6xl text-[#334FBA] py-4 transition duration-300 group-hover:text-white"></i>
+                    <div class="px-6 py-4">
+                      <div class="font-bold text-xl mb-2 text-[#334FBA] transition duration-300 group-hover:text-white">Exportación SIRE</div>
+                      <p class="text-gray-700 text-base transition duration-300 group-hover:text-white">Exporta tus ventas y compras en formato SIRE.</p>
+                    </div>
+                  </div>
+                
+                </div>
+
+              </div>
+              
+            </section>
+
+            <section class="bg-white py-20">
+              <div x-data=" { visible: false }"
+              x-intersect.once="visible = true"
+              :class ="visible ? 'animate__animated animate__fadeInUp' : 'opacity-0'"
+              class="container flex flex-col items-center text-center">
+                <h2 class="text-3xl font-bold text-[#334FBA] after:content-[''] after:block after:w-full after:h-1 after:bg-[#334FBA] after:rounded-lg after:mt-2">
+                  Clientes
+                </h2>
+                <p class="text-lg font-semibold text-gray-600 mb-4 mt-2 text-center">Ellos confían en nosotros</p>
+            
+                <div class="flex flex-wrap justify-center items-center gap-6 mt-4">
+                  <img src="https://picsum.photos/200" alt="Logo 1" class="h-26 w-auto opacity-70 hover:opacity-100 transition duration-300 grayscale hover:grayscale-0">
+                  <img src="https://picsum.photos/200" alt="Logo 2" class="h-26 w-auto opacity-70 hover:opacity-100 transition duration-300 grayscale hover:grayscale-0">
+                  <img src="https://picsum.photos/200" alt="Logo 3" class="h-24 w-auto opacity-70 hover:opacity-100 transition duration-300 grayscale hover:grayscale-0">
+                  <img src="https://picsum.photos/200" alt="Logo 4" class="h-26 w-auto opacity-70 hover:opacity-100 transition duration-300 grayscale hover:grayscale-0">
+                  <img src="https://picsum.photos/200" alt="Logo 5" class="h-26 w-auto opacity-70 hover:opacity-100 transition duration-300 grayscale hover:grayscale-0">
+                  <img src="https://picsum.photos/200" alt="Logo 6" class="h-24 w-auto opacity-70 hover:opacity-100 transition duration-300 grayscale hover:grayscale-0">
+                  <img src="https://picsum.photos/200" alt="Logo 7" class="h-26 w-auto opacity-70 hover:opacity-100 transition duration-300 grayscale hover:grayscale-0">
+                  <img src="https://picsum.photos/200" alt="Logo 8" class="h-24 w-auto opacity-70 hover:opacity-100 transition duration-300 grayscale hover:grayscale-0">
+                </div>
+              </div>
+            </section>
+
+            <section id="precios" class="bg-[#F3F4F6] py-20">
+
+              <div x-data=" { visible: false }"
+              x-intersect.once="visible = true"
+              class="container flex flex-col items-center text-center">
+                <h2 class="text-3xl font-bold text-[#334FBA] after:content-[''] after:block after:w-full after:h-1 after:bg-[#334FBA] after:rounded-lg after:mt-2">
+                  Precios
+                </h2>
+                <p class="text-lg font-semibold text-gray-600 mb-4 mt-2">Elige el plan que mejor se adapte a tus necesidades</p>
+
+                <div class="flex flex-wrap lg:flex-nowrap gap-4 justify-center items-center mt-4">
+            
+                  <!-- Plan Microempresa -->
+                  <div :class="visible ? 'animate__animated animate__flipInY' : 'opacity-0'"
+                  class="max-w-sm rounded-2xl overflow-hidden shadow-lg bg-white transform transition duration-500 hover:scale-105 hover:shadow-2xl hover:border-1 border-[#334FBA]">
+                    <div class="relative">
+                      <div class="absolute top-0 right-0 bg-[#FF5733] text-white text-sm font-bold px-3 py-1 rounded-bl-xl">Más Popular</div>
+                    </div>
+                    <div class="px-6 py-8">
+                      <div class="font-bold text-xl mb-2">Microempresa</div>
+                      
+                      <!-- Precio más destacado -->
+                      <p class="text-4xl font-extrabold text-[#334FBA] mb-4 transform transition duration-300 hover:text-[#FF5733]">S/ 20 <span class="text-base">/mes</span></p>
+              
+                      <ul class="list-none mt-4 text-left space-y-2">
+                        <li>100 Documentos / mes</li>
+                        <li>01 Establecimientos</li>
+                        <li>1,000 Productos</li>
+                      </ul>
+                      <button class="w-full h-12 shadow-sm rounded-full bg-[#334FBA] hover:bg-indigo-800 transition-all duration-300 text-white text-base font-semibold leading-7 mt-4 transform hover:scale-105">Elegir plan</button>
+                    </div>
+                  </div>
+              
+                  <!-- Plan Pequeña Empresa -->
+                  <div :class="visible ? 'animate__animated animate__flipInY' : 'opacity-0'"
+                  class="max-w-sm rounded-2xl overflow-hidden shadow-lg bg-white transform transition duration-500 hover:scale-105 hover:shadow-2xl hover:border-1 border-[#334FBA]">
+                    <div class="px-6 py-8">
+                      <div class="font-bold text-xl mb-2">Pequeña Empresa</div>
+                      
+                      <!-- Precio más destacado -->
+                      <p class="text-4xl font-extrabold text-[#334FBA] mb-4 transform transition duration-300 hover:text-[#FF5733]">S/ 50 <span class="text-base">/mes</span></p>
+              
+                      <ul class="list-none mt-4 text-left space-y-2">
+                        <li>500 Documentos / mes</li>
+                        <li>03 Establecimientos</li>
+                        <li>5,000 Productos</li>
+                      </ul>
+                      <button class="w-full h-12 shadow-sm rounded-full bg-[#334FBA] hover:bg-indigo-800 transition-all duration-300 text-white text-base font-semibold leading-7 mt-4 transform hover:scale-105">Elegir plan</button>
+                    </div>
+                  </div>
+              
+                  <!-- Plan Mediana Empresa -->
+                  <div :class="visible ? 'animate__animated animate__flipInY' : 'opacity-0'"
+                  class="max-w-sm rounded-2xl overflow-hidden shadow-lg bg-white transform transition duration-500 hover:scale-105 hover:shadow-2xl hover:border-1 border-[#334FBA]">
+                    <div class="px-6 py-8">
+                      <div class="font-bold text-xl mb-2">Mediana Empresa</div>
+                      
+                      <!-- Precio más destacado -->
+                      <p class="text-4xl font-extrabold text-[#334FBA] mb-4 transform transition duration-300 hover:text-[#FF5733]">S/ 100 <span class="text-base">/mes</span></p>
+              
+                      <ul class="list-none mt-4 text-left space-y-2">
+                        <li>1,000 Documentos / mes</li>
+                        <li>10 Establecimientos</li>
+                        <li>10,000 Productos</li>
+                      </ul>
+                      <button class="w-full h-12 shadow-sm rounded-full bg-[#334FBA] hover:bg-indigo-800 transition-all duration-300 text-white text-base font-semibold leading-7 mt-4 transform hover:scale-105">Elegir plan</button>
+                    </div>
+                  </div>
+              
+                  <!-- Plan Gran Empresa -->
+                  <div :class="visible ? 'animate__animated animate__flipInY' : 'opacity-0'"
+                  class="max-w-sm rounded-2xl overflow-hidden shadow-lg bg-white transform transition duration-500 hover:scale-105 hover:shadow-2xl hover:border-1 border-[#334FBA]">
+                    <div class="px-6 py-8">
+                      <div class="font-bold text-xl mb-2">Gran Empresa</div>
+                      
+                      <!-- Precio más destacado -->
+                      <p class="text-4xl font-extrabold text-[#334FBA] mb-4 transform transition duration-300 hover:text-[#FF5733]">S/ 200 <span class="text-base">/mes</span></p>
+              
+                      <ul class="list-none mt-4 text-left space-y-2">
+                        <li>5,000 Documentos / mes</li>
+                        <li>20 Establecimientos</li>
+                        <li>50,000 Productos</li>
+                      </ul>
+                      <button class="w-full h-12 shadow-sm rounded-full bg-[#334FBA] hover:bg-indigo-800 transition-all duration-300 text-white text-base font-semibold leading-7 mt-4 transform hover:scale-105">Elegir plan</button>
+                    </div>
+                  </div>
+              
+                </div>
+              </div>
+
+            </section>
+
+            <section id="faqs" class="bg-white py-20">
+              <div x-data=" { visible: false }"
+              x-intersect.once="visible = true"
+              :class="visible ? 'animate__animated animate__fadeInUp' : 'opacity-0'"
+              class="container flex flex-col items-center text-center">
+                <h2 class="text-3xl font-bold text-[#334FBA] after:content-[''] after:block after:w-full after:h-1 after:bg-[#334FBA] after:rounded-lg after:mt-2">
+                  Preguntas Frecuentes
+                </h2>
+                <p class="text-lg font-semibold text-gray-600 mb-4 mt-2">Resuelve tus dudas sobre nuestro servicio</p>
+            
+                <div class="w-full max-w-3xl mt-8" x-data="{ openFAQ: null }">
+                  <!-- Acordeón -->
+                  <div class="space-y-4">
+            
+                    <!-- Pregunta 1 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                      <button class="w-full text-left px-6 py-4 text-xl font-semibold text-gray-700 hover:bg-gray-100 focus:outline-none flex justify-between items-center"
+                              @click="openFAQ === 1 ? openFAQ = null : openFAQ = 1">
+                        <span>¿Qué es un sistema ERP?</span>
+
+                        <!-- Icono de flecha -->
+                        <svg :class="{'rotate-180': openFAQ === 1}" class="w-5 h-5 transform transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                      </button>
+                      <div x-show="openFAQ === 1" class="px-6 py-4 text-gray-700 text-base">
+                        Un sistema ERP (Enterprise Resource Planning) es una solución integral que permite gestionar y optimizar los recursos de una empresa.
+                      </div>
+                    </div>
+            
+                    <!-- Pregunta 2 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                      <button class="w-full text-left px-6 py-4 text-xl font-semibold text-gray-700 hover:bg-gray-100 focus:outline-none flex justify-between items-center"
+                              @click="openFAQ === 2 ? openFAQ = null : openFAQ = 2">
+                        <span>¿Qué necesito para registrar mi empresa?</span>
+                        <svg :class="{'rotate-180': openFAQ === 2}" class="w-5 h-5 transform transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                      </button>
+                      <div x-show="openFAQ === 2" class="px-6 py-4 text-gray-700 text-base">
+                        Para registrar tu empresa necesitas un RUC, una dirección fiscal y cumplir con los requisitos legales establecidos por SUNAT.
+                      </div>
+                    </div>
+            
+                    <!-- Pregunta 3 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                      <button class="w-full text-left px-6 py-4 text-xl font-semibold text-gray-700 hover:bg-gray-100 focus:outline-none flex justify-between items-center"
+                              @click="openFAQ === 3 ? openFAQ = null : openFAQ = 3">
+                        <span>¿Puedo administrar múltiples empresas en mi cuenta?</span>
+                        <svg :class="{'rotate-180': openFAQ === 3}" class="w-5 h-5 transform transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                      </button>
+                      <div x-show="openFAQ === 3" class="px-6 py-4 text-gray-700 text-base">
+                        Sí, puedes administrar múltiples empresas desde una sola cuenta, facilitando la gestión de tus negocios.
+                      </div>
+                    </div>
+            
+                    <!-- Pregunta 4 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                      <button class="w-full text-left px-6 py-4 text-xl font-semibold text-gray-700 hover:bg-gray-100 focus:outline-none flex justify-between items-center"
+                              @click="openFAQ === 4 ? openFAQ = null : openFAQ = 4">
+                        <span>¿Por qué debería elegir el sistema de ERP ABC?</span>
+                        <svg :class="{'rotate-180': openFAQ === 4}" class="w-5 h-5 transform transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                      </button>
+                      <div x-show="openFAQ === 4" class="px-6 py-4 text-gray-700 text-base">
+                        El sistema de ERP ABC es fácil de usar, flexible y se adapta a las necesidades de tu empresa, además de contar con un excelente soporte técnico.
+                      </div>
+                    </div>
+            
+                  </div>
+                </div>
+              </div>
+            </section>
+            
+            <section id="contacto" class="bg-[#F3F4F6] py-20" x-data="{ activeTab: 'contactForm' }">
+              <div x-data=" { visible: false }"
+              x-intersect.once="visible = true"
+              :class="visible ? 'animate__animated animate__jackInTheBox' : 'opacity-0'"
+              class="container flex flex-col items-center text-center">
+                <h2 class="text-3xl font-bold text-[#334FBA] after:content-[''] after:block after:w-full after:h-1 after:bg-[#334FBA] after:rounded-lg after:mt-2">
+                  Contáctanos
+                </h2>
+                <p class="text-lg font-semibold text-gray-600 mb-4 mt-2">Estamos aquí para ayudarte</p>
+            
+                <!-- Tabs de Contáctanos y Ubícanos -->
+                <div class="w-full max-w-full mt-8">
+
+                  <!-- Navegación de Tabs -->
+                  <div class="flex justify-center mb-6 space-x-10">
+                    <button @click="activeTab = 'contactForm'" :class="{'text-[#334FBA] border-b-4 border-[#334FBA]': activeTab === 'contactForm'}" class="px-6 py-3 text-lg font-semibold transition-all duration-300 ease-in-out hover:text-[#334FBA] focus:outline-none">
+                      Formulario de Contacto
+                    </button>
+                    <button @click="activeTab = 'locationInfo'" :class="{'text-[#334FBA] border-b-4 border-[#334FBA]': activeTab === 'locationInfo'}" class="px-6 py-3 text-lg font-semibold transition-all duration-300 ease-in-out hover:text-[#334FBA] focus:outline-none">
+                      Ubícanos
+                    </button>
+                  </div>
+            
+                  <!-- Contenido de los Tabs -->
+                  <div class="flex flex-wrap justify-center">
+
+                    <!-- Tab de Formulario de Contacto -->
+                    <div x-show="activeTab === 'contactForm'" class="w-full md:w-1/2 p-6 bg-white rounded-lg shadow-lg transition-all duration-300 ease-in-out transform hover:bg-[#E6F1FD] hover:ring-2 hover:ring-[#334FBA]">
+                      <form>
+                        <input type="email" placeholder="Email *" required class="w-full h-12 px-4 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#334FBA] transition-all duration-300 ease-in-out">
+                        <input type="text" placeholder="Nombre *" required class="w-full h-12 px-4 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#334FBA] transition-all duration-300 ease-in-out">
+                        <input type="tel" placeholder="Teléfono *" required class="w-full h-12 px-4 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#334FBA] transition-all duration-300 ease-in-out">
+                        <textarea placeholder="Mensaje *" required class="w-full h-24 px-4 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#334FBA] transition-all duration-300 ease-in-out"></textarea>
+                        <button type="submit" class="w-full h-12 shadow-sm rounded-full bg-[#334FBA] hover:bg-indigo-800 transition-all duration-500 ease-in-out text-white text-base font-semibold leading-7">
+                          Enviar Información
+                        </button>
+                      </form>
+                    </div>
+            
+                    <!-- Tab de Información de Ubicación -->
+                    <div x-show="activeTab === 'locationInfo'" class="w-full md:w-1/2 p-6 bg-white rounded-lg shadow-lg transition-all duration-300 ease-in-out transform hover:bg-[#E6F1FD] hover:ring-2 hover:ring-[#334FBA]">
+                      <div class="flex flex-col">
+                        <div class="mb-6">
+                          <p class="text-xl font-bold text-[#334FBA]">Dirección</p>
+                          <p class="text-lg text-gray-700">Calle 123, Lima, Perú</p>
+                        </div>
+                        <div class="mb-6">
+                          <p class="text-xl font-bold text-[#334FBA]">Correo</p>
+                          <p class="text-lg text-gray-700">contacto@empresa.com</p>
+                        </div>
+                        <div class="mb-6">
+                          <p class="text-xl font-bold text-[#334FBA]">WhatsApp</p>
+                          <p class="text-lg text-gray-700"><a href="https://wa.me/51987654321" target="_blank" class="text-[#334FBA] hover:underline">+51 987 654 321</a></p>
+                        </div>
+            
+                        <!-- Mapa de Google -->
+                        <div class="mt-6">
+                          <iframe class="w-full h-64 rounded-lg shadow-lg transition-all duration-500 ease-in-out transform hover:bg-[#E6F1FD] hover:ring-2 hover:ring-[#334FBA]"
+                                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.357513660749!2d-73.97800398462383!3d40.71277677933051!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259adf1b3f5fb%3A0x1b9c56fd42638ac9!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1604326001472!5m2!1sen!2sus"
+                                  allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <footer class="bg-[#334FBA] py-10">
+              <div class="container flex-col md:flex-row items-center justify-between">
+                <!-- Sección Principal -->
+                <div class="flex flex-col items-center md:items-start text-white">
+                  <div>
+                    <img src="./src/img/logo.png" alt="Logo" class="h-16 mx-auto">
+                  </div>
+            
+                  <p class="text-center md:text-left mt-4 max-w-2xl">
+                    Plataforma de facturación electrónica, autorizada por SUNAT para la emisión de comprobantes electrónicos.
+                  </p>
+            
+                  <!-- Redes sociales -->
+                  <div class="mt-4 flex space-x-4">
+                    <a href="#" class="text-white text-2xl hover:text-gray-300">
+                      <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="text-white text-2xl hover:text-gray-300">
+                      <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-white text-2xl hover:text-gray-300">
+                      <i class="fab fa-youtube"></i>
+                    </a>
+                  </div>
+                </div>
+            
+                <!-- Sección de Enlaces -->
+                <div class="w-full flex flex-col mt-6 md:mt-0 text-center md:text-left md:flex-row justify-between space-y-8 md:space-y-0">
+                  <!-- Sección de Empresa -->
+                  <div class="w-full md:w-1/3">
+                    <h4 class="text-white text-lg font-bold mb-4">Empresa</h4>
+                    <ul class="text-white text-sm space-y-2">
+                      <li><a href="#empresa" class="hover:text-gray-300">Sobre nosotros</a></li>
+                      <li><a href="#contacto" class="hover:text-gray-300">Contáctanos</a></li>
+                      <li><a href="#faqs" class="hover:text-gray-300">FAQs</a></li>
+                      <li><a class="hover:text-gray-300">Términos y condiciones</a></li>
+                      <li><a class="hover:text-gray-300">Política de privacidad</a></li>
+                    </ul>
+                  </div>
+            
+                  <!-- Sección de Productos -->
+                  <div class="w-full md:w-1/3">
+                    <h4 class="text-white text-lg font-bold mb-4">Módulos</h4>
+                    <ul class="text-white text-sm space-y-2">
+                      <li><a class="hover:text-gray-300">Facturación Electrónica</a></li>
+                      <li><a class="hover:text-gray-300">Contabilidad y Finanzas</a></li>
+                      <li><a class="hover:text-gray-300">Inventario y Almacenes</a></li>
+                      <li><a class="hover:text-gray-300">Compras y Ventas</a></li>
+                      <li><a class="hover:text-gray-300">Reportes y Análisis</a></li>
+                    </ul>
+                  </div>
+            
+                  <!-- Sección de Soporte -->
+                  <div class="w-full md:w-1/3">
+                    <h4 class="text-white text-lg font-bold mb-4">Soporte</h4>
+                    <ul class="text-white text-sm space-y-2">
+                      <li><a href="#contacto" class="hover:text-gray-300">Centro de ayuda</a></li>
+                      <li><a href="#contacto" class="hover:text-gray-300">Chat en vivo</a></li>
+                      <li><a href="#contacto" class="hover:text-gray-300">Soporte técnico</a></li>
+                      <li><a href="#contacto" class="hover:text-gray-300">Garantía y devoluciones</a></li>
+                    </ul>
+                  </div>
+                </div>
+                
+              </div>
+              
+            </footer>
+
+            <div class="text-center text-white bg-[#334FBA] py-4 border-t border-gray-200">
+              <p class="text-sm">©Copyright 2025. TOP TECH CORPORATION S.A.C. Todos los derechos reservados.</p>
+            </div>
+                  
 </body>
+
 </html>
